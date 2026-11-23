@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ min-height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ font-family:Arial,sans-serif;
+ color:white;
+ background:linear-gradient(135deg,#21001d,#780044,#ed6697);
+ overflow:hidden;
+}
+
+.container{
+ width:90%;
+ max-width:430px;
+ padding:30px 20px;
+}
+
+.heart{
+ font-size:65px;
+ animation:beat 1s infinite;
+}
+
+@keyframes beat{
+ 50%{transform:scale(1.2)}
+}
+
+h1{
+ color:#ffd5e7;
+ font-size:30px;
+}
+
+p{
+ line-height:1.8;
+ font-size:16px;
+}
+
+button{
+ background:#ff4c91;
+ color:white;
+ border:0;
+ border-radius:40px;
+ padding:16px 55px;
+ font-size:19px;
+ font-weight:bold;
+ margin-top:25px;
+ box-shadow:0 0 25px #ff9abc;
+ cursor:pointer;
+}
+
+button:active{
+ transform:scale(.95);
+}
+
+#surprise{
+ display:none;
+ animation:show 2s ease;
+}
+
+@keyframes show{
+ from{opacity:0;transform:scale(.5)}
+ to{opacity:1;transform:scale(1)}
+}
+
+.floating{
+ position:fixed;
+ bottom:-40px;
+ pointer-events:none;
+ animation:fly 6s linear forwards;
+}
+
+@keyframes fly{
+ to{
+  transform:translateY(-110vh) rotate(360deg);
+  opacity:0;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+ <div id="opening">
+  <div class="heart">💝</div>
+  <h1>Ada Kejutan Untukmu</h1>
+  <p>
+   Seseorang ingin memberikan sesuatu
+   yang spesial untukmu...
+  </p>
+
+  <button onclick="buka()">BUKA ❤️</button>
+ </div>
+
+ <div id="surprise">
+  <div class="heart">❤️</div>
+
+  <h1>HAPPY BIRTHDAY!</h1>
+  <h2>Ke 22 Tahun 🎂</h2>
+
+  <p>
+   Selamat ulang tahun ❤️
+
+   Semoga kamu bisa mendapatkan
+   apa yang kamu impikan.
+
+   Semoga kebahagiaan selalu menyertaimu,
+   segala harapanmu menjadi kenyataan,
+   dan senyummu tidak pernah hilang.
+
+   Terima kasih sudah menjadi seseorang
+   yang begitu istimewa.
+
+   <br><br>
+   <b>With Love ❤️</b>
+  </p>
+
+  <div style="font-size:50px">
+   💐🎂💕
+  </div>
+ </div>
+
+</div>
+
+<audio id="lagu" preload="auto">
+ <source src="jamrud.mp3" type="audio/mpeg">
+</audio>
+
+ document.getElementById("opening").style.display="none";
+ document.getElementById("surprise").style.display="block";
+
+ for(let i=0;i<60;i++){
+  let h=document.createElement("div");
+  h.className="floating";
+  h.innerHTML=["❤️","💕","💗","🌹","✨","💖"][Math.floor(Math.random()*6)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(3+Math.random()*5)+"s";
+  h.style.fontSize=(20+Math.random()*25)+"px";
+  document.body.appendChild(h);
+
+  setTimeout(()=>h.remove(),8000);
+ }
+}
+</script>
+
+</body>
+</html>
